@@ -16,4 +16,4 @@
 	 */
 	$Memcache->set('key','some really big variable',MEMCACHE_COMPRESSED,50);
 
-	$redis->get('key2',15,'sadagsg');//15
+	$Memcache->get('key2');
