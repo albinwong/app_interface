@@ -99,7 +99,16 @@ movie::getVideos();
     2. array(1,7,89);
 3. 综合通信方式封装  
     封装方法: `show($code,$message,$data=[],$type='json');`
-    
-#### 3. 核心技术  
 
+#### 3. 核心技术  
+1. 缓存技术  
+    1. 静态缓存  
+        保存在磁盘上的静态文件,用PHP生成数据放入静态文件中
+    2. Memcache.Redis缓存  
+        1. Memcache和Redis都是用来管理数据的  
+        2. 它们数据都是存放在内存里的  
+        3. Redis可以定期将数据备份到磁盘(持久化)  
+        4. Memcache只是简单的key/value缓存  
+        5. Redis不仅仅支持简单的k/v类型的数据,同时还提供list.set.hash等数据结构的存储  
+2. 定时任务  
 #### 4. APP接口实例  

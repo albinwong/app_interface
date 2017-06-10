@@ -11,6 +11,7 @@ $data = array(
 
 $file = new File;
 if($file ->cacheDate('index_cache',$data)){
+	// var_dump($file ->cacheDate('index_cache'));exit;
 	echo "success";
 }else{
 	echo "failed";
