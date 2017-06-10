@@ -60,19 +60,46 @@ movie::getVideos();
         3. 传输速度  
 
 - APP接口做的事  
-    获取数据: 从数据库中缓存中获取数据,然后通过接口数据返回给客户端  
-    提交数据: 通过接口提交数据给服务器,然后服务器入库处理,或者其他处理
+    获取数据: 从数据库中缓存中获取数据,通过接口数据返回给客户端  
+    提交数据: 通过接口提交数据给服务器,服务器入库处理,或者其他处理
 
 #### 2. 封装通信接口方法  
 1. JSON方式封装接口数据方法  
     1. PHP生成JSON数据  
-    方法:json_encode();  
+    方法:json_encode()  
     注: 该函数只能接受==UTF-8==编码的数据,如果传递其他格式的数据该函数会返回NULL
 
-    2. 
+    2. 通信数据标准格式  
+    code 状态码(200.400等)  
+    message 提示信息(邮箱格式不正确,数据返回成功等)  
+    data 返回数据  
+    3. JSON方式如何封装通信数据方法  
+
 2. XML方式封装接口数据方法  
-3. 综合通信方式封装   
+    1. PHP生成XML数据  
+    (1) 组装字符串  
+    (2) 使用系统类  
+        - DomDocument
+            ```
+            <?php 
+            $dom = new DOMDocument('1.0','utf-8');
+            $element = $dom->createElement('test','This is the root element');
+            $dom->appendChild($element);
+            echo $dom->saveXML();
+            
+            <?xml version="1.0" encoding="utf-8"?>
+            <test>This is the root element</test>
+            ```
+        - XMLWriter
+        - SimpleXML
+    2. XML方式如何封装通信数据方法  
+    - 封装方法 `xmlEncode($code,$message="",$data= [])`
+    - data 数据分析
+    1. array('index'=> 'api');
+    2. array(1,7,89);
+3. 综合通信方式封装  
+    封装方法: `show($code,$message,$data=[],$type='json');`
+    
 #### 3. 核心技术  
 
 #### 4. APP接口实例  
- 
