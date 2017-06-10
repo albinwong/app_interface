@@ -110,5 +110,25 @@ movie::getVideos();
         3. Redis可以定期将数据备份到磁盘(持久化)  
         4. Memcache只是简单的key/value缓存  
         5. Redis不仅仅支持简单的k/v类型的数据,同时还提供list.set.hash等数据结构的存储  
+- Redis  
+    Redis数据操作    
+    1. 开启redis客户端  `redis-server 6379.conf`  开启客户端`redis-cli`
+    2. 设置缓存之  `set index-cache '数据' `  
+    3. 获取缓存数据  `get index-cache`
+    4. 设置过期时间  `setex key 10 'cache'`//10s  
+    5. 删除缓存  `del key`  
+    
+    PHP操作Redis  
+    1. 安装phpredis扩展   
+    2. PHP连接Redis服务-connect('127.0.0.1',6379)  
+    3. set 设置缓存  
+    4. get 获取缓存  
+- Memcache
+    PHP操作Memcache  
+    1. 安装Memcache扩展   
+    2. PHP连接Memcache服务-connect('127.0.0.1',11211)  
+    3. set 设置缓存  
+    4. get 获取缓存  
+    
 2. 定时任务  
 #### 4. APP接口实例  
