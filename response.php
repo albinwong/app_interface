@@ -31,7 +31,7 @@ class Response
 			var_dump($result);
 			exit;
 		}elseif($type == 'xml'){
-			self::xml($code,$message,$data);
+			self::xmlEncode($code,$message,$data);
 		}else{
 			// To do list
 		}
@@ -58,20 +58,7 @@ class Response
 		exit;
 	}
 
-	static public function xml(){
-		header('Content-Type:text/xml');
-		$xml = "<?xml version='1.0' encoding='UTF-8'?>\n";
-		$xml .= "<root>\n";
-		$xml .= "<code>200</code>\n";
-		$xml .= "<message>数据返回成功</message>\n";
-		$xml .= "<data>\n";
-		$xml .= "<id>1</id>\n";
-		$xml .= "<name>huanchao</name>\n";
-		$xml .= "</data>\n";
-		$xml .= "</root>";
 
-		echo $xml;
-	}
 	/**
 	 * 按xml方式输出通信数据方法
 	 * @code   integer    状态码
