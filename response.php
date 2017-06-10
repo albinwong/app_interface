@@ -100,11 +100,11 @@ class Response
 }
 
 // Response::xml();
-$data = [
+/*$data = [
 	'id' => 1,
 	'name' => 'Naking',
 	'type' => array(4,5,6),
 ];
-Response::xmlEncode(200,'success',$data);
+Response::xmlEncode(200,'success',$data);*/
 
 // <0>4</0> <item id ="0">4</item>

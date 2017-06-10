@@ -24,17 +24,18 @@ class Db{
 		if(!self::$_connectSource){
 			self::$_connectSource = mysql_connect($this->_dbConfig['host'],$this->_dbConfig['user'],$this->_dbConfig['password']);
 			if(!self::$_connectSource){
-				die('mysql connect error'.mysql_error());
+				throw new Exception('mysql connect error'.mysql_error(), 1);
 			}
 			mysql_select_db($this->_dbConfig['database'],self::$_connectSource);
-			mysql_query('select names UTF8',self::$_connectSource);
+			mysql_query('set names UTF8',self::$_connectSource);
+			//mysql_query("SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_connection = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'", self::$_connectSource);
 		}
 		return self::$_connectSource;
 	}
 }
 
-$connect = Db::getInstance()->connect();
+/*$connect = Db::getInstance()->connect();
 $sql = 'select * from cates';
 $result = mysql_query($sql,$connect);
 echo mysql_num_rows($result);
-var_dump($result);
+var_dump($connect);*/

@@ -131,4 +131,31 @@ movie::getVideos();
     4. get 获取缓存  
     
 2. 定时任务  
-#### 4. APP接口实例  
+    1. 定时任务服务提供crontab命令来设定服务 
+    2. crontab -e //编辑某个用户的cron服务 
+    3. crontab -l //列出某个用户cron服务的详细内容  
+    4. crontab -r //删除每个用户的cron服务  
+
+格式:  
+分&emsp;&emsp;时&emsp;&emsp;日&emsp;&emsp;月&emsp;&emsp;星期&emsp;&emsp;命令  
+&nbsp;*&emsp;&emsp;&nbsp; *&emsp;&emsp;&nbsp; *&emsp;&emsp;&nbsp; *&emsp;&emsp;&emsp; *&emsp;&emsp;&emsp; *  
+0-59&emsp;0-23&emsp;1-31&emsp;1-21&emsp;0-6&emsp;command  
+注: * 代表取值范围内的数字，/ 代表每  
+例： */1 * * * * php /data/www/cron.php 每分钟执行cron.php  
+&emsp;50 7 * * * /sbin/service sshd start 每天7:50开启ssh服务
+#### 4. APP接口实例   
+1. 单例模式连接数据库  
+    单例模式三大原则:
+    1. 构造函数需要标记为非public(防止外部使用new操作符创建对象),单例类不能在其他类中实例化,只能被其自身实例化  
+    2. 拥有一个保存类的实例的静态成员变量$_instance
+    3. 拥有一个访问这个实例的公共的静态方法  
+2. 首页接口开发以及客户端APP演示  
+    1. 读取数据库方式开发首页接口  
+        从数据库获取信===>封装===>生成接口数据(应用场景:数据时效性,比较高的系统)
+    2. 读取缓存方式开发首页接口  
+        从数据库获取信息===>封装(缓存)===>生成接口数据(用途:减少数据库压力)  
+    3. 定时读取缓存方式开发首页接口  
+        数据库===>crontab===>http请求/缓存==>封装并返回数据  
+3. APP版本升级以及APP演示  
+
+4. APP错误日志接口  
