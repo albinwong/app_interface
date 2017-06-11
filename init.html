@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<form action="./init.php?format=xml" method="post">
+		设备号: <input type="text" name="did"><br>
+		版本号: <input type="text" name="version_id"><br>
+		小版本号: <input type="text" name="version_mini"><br>
+		APP类型: <input type="text" name="app_id"><br>
+		encrypt_did: <input type="text" value="c39f07bf54425745d642498395ce144c" name="encrypt_did"><br>
+		<div>
+			<input type="submit" value="提交" />
+		</div>
+	</form>
+	<form action="./error.php?format=xml" method="post">
+		设备号: <input type="text" name="did"><br>
+		版本号: <input type="text" name="version_id"><br>
+		小版本号: <input type="text" name="version_mini"><br>
+		APP类型: <input type="text" name="app_id"><br>
+		error_log: <input type="text" name="error_log"><br>
+		encrypt_did: <input type="text" value="c39f07bf54425745d642498395ce144c" name="encrypt_did"><br>
+		<div>
+			<input type="submit" value="提交" />
+		</div>
+	</form>
+</body>
+</html>

@@ -157,5 +157,27 @@ movie::getVideos();
     3. 定时读取缓存方式开发首页接口  
         数据库===>crontab===>http请求/缓存==>封装并返回数据  
 3. APP版本升级以及APP演示  
+    - 版本升级分析以及数据表设计
+    - 版本升级接口开发以及APP演示
+    
+> 接口传递参数  
+
+app_id  | 客户端id 1 安卓pad
+---|---
+version_id | 版本号
+did |   客户端设备号
+version_mini | 小版本号
+encrypt_did | 加密后did串
+
+> 基本参数传递方法和获取方法  
+
+方式 | 获取
+---|---
+get | $_GET
+post | $_POST
+header头 | $_SERVER  
 
 4. APP错误日志接口  
+    1.  APP强退
+    2.  数据加载失败
+    3.  APP潜在问题
