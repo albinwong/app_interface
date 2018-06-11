@@ -21,3 +21,4 @@ class ErrorLog extends Common{
 
 $error = new ErrorLog;
 $error->index();
+
